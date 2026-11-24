@@ -1,0 +1,20 @@
+<article>
+  <div class="d-flex align-items-center gap-3 border-bottom pb-3 mb-3">
+    <h1 class="mb-0"><%= @article.title %></h1>
+
+    <%= link_to edit_article_path(@article), class: "text-secondary" do %>
+      <i class="fa-solid fa-pencil"></i>
+    <% end %>
+
+    <%= link_to article_path(@article),
+                data: { turbo_method: :delete, turbo_confirm: "Are you sure?" },
+                class: "text-secondary" do %>
+      <i class="fa-regular fa-trash-can"></i>
+    <% end %>
+  </div>
+
+  <p><%= simple_format(@article.content) %></p>
+
+  <hr>
+  <%= link_to "Back to articles", articles_path, class: "text-decoration-none" %>
+</article>
